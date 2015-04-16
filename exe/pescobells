@@ -1,0 +1,9 @@
+#!/bin/env ruby
+
+require 'pescobells'
+
+include Pescobells
+
+raise ArgumentError.new "No player executables given. USAGE: #{$0} <player_executable>" unless ARGV[0]
+self.player_executable = ARGV[0]
+play_bells time_to_bells Time.now 
