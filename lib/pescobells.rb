@@ -8,7 +8,7 @@ module Pescobells
     :quarter => File.expand_path('../../assets/quarter_bell.wav', __FILE__),
   }
 
-  attr_accessor :player_executable
+  attr_accessor :cli_audio_player
 
   def time_to_bells(time = Time.now)
     bells = [ [], [] ]
@@ -22,9 +22,11 @@ module Pescobells
   end
 
   def play_bells(bells)
+    raise "No player executables given. USAGE: #{$0} <cli_audio_player>" unless cli_audio_player
     bells.flatten.map do |bell|
-      play_sound self.player_executable, bell
+      play_sound self.cli_audio_player, bell
     end
+    bells
   end
 
   def play_sound(player, audio_file)
