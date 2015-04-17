@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "0,15,30,45 *    * * *   root    ( rvm default exec pescobells )"
