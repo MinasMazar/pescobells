@@ -26,7 +26,6 @@ module Pescobells
     bells.flatten.map do |bell|
       play_sound self.cli_audio_player, bell
     end
-    bells
   end
 
   def play_sound(player, audio_file)

@@ -21,10 +21,13 @@ class TestPescobells < Minitest::Test
   end
 
   def test_playing_bells
-    time = Time.now
-    bells = time_to_bells time
-    puts "\n*** Your should listen n. #{bells[0].size} hour bells, n. #{bells[1].size} quarter bells. ***\n"
-    assert_equal [ true ],  play_bells(bells).uniq
+    [ [12,31], [21,9], [16,49] ].each do |time|
+      time = Time.new 2011,11,11,time[0], time[1]
+      bells = time_to_bells time
+      puts "\n*** Your should listen n. #{bells[0].size} hour bells, n. #{bells[1].size} quarter bells. ***\n"
+      assert_equal [ true ],  play_bells(bells).uniq
+      sleep 4
+    end
   end
 
 end
